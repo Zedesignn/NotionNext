@@ -225,7 +225,8 @@ const nextConfig = {
   },
   publicRuntimeConfig: {
     // 这里的配置既可以服务端获取到，也可以在浏览器端获取到
-    THEMES: themes
+    THEMES: themes,
+    A_TRACKING_ID: process.env.GA_TRACKING_ID || 'G-1KZJFJKBR9',
   }
 }
 
