@@ -3,8 +3,8 @@ import { loadExternalResource } from '@/lib/utils'
 import { useEffect, useRef, useState } from 'react'
 
 /**
- * Giscus评论 @see https://giscus.app/zh-CN
- * Contribute by @txs https://github.com/txs/NotionNext/commit/1bf7179d0af21fb433e4c7773504f244998678cb
+ * Twikoo 评论组件
+ * @see https://twikoo.js.org/
  * @returns {JSX.Element}
  * @constructor
  */
@@ -13,44 +13,50 @@ const Twikoo = ({ isDarkMode }) => {
   const envId = siteConfig('COMMENT_TWIKOO_ENV_ID')
   const el = siteConfig('COMMENT_TWIKOO_ELEMENT_ID', '#twikoo')
   const twikooCDNURL = siteConfig('COMMENT_TWIKOO_CDN_URL')
-  const lang = siteConfig('LANG')
-  const [isInit] = useState(useRef(false))
+  const lang = siteConfig('LANG') || 'zh-CN'
+  const isInit = useRef(false) // 修改为正确的引用方式
 
   const loadTwikoo = async () => {
     try {
-      await loadExternalResource(twikooCDNURL, 'js')
+      console.log('Loading Twikoo script from:', twikooCDNURL)
+      await loadExternalResource(twikooCDNURL, 'js') // 加载 Twikoo 脚本
+
       const twikoo = window?.twikoo
-      if (
-        typeof twikoo !== 'undefined' &&
-        twikoo &&
-        typeof twikoo.init === 'function'
-      ) {
+      if (twikoo && typeof twikoo.init === 'function') {
+        console.log('Initializing Twikoo...')
+
+        // 初始化 Twikoo 评论系统
         twikoo.init({
-          envId: 'https://twikoo-six-smoky.vercel.app', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-          el: el, // 容器元素
-          lang: lang // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/client/utils/i18n/index.js
-          // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-          // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+          envId: envId || 'https://twikoo-six-smoky.vercel.app', // 检查 envId 是否为空
+          el: el, // 评论区容器
+          lang: lang, // 评论区语言
+          path: location.pathname || '/', // 确保 path 不为空
         })
-        console.log('twikoo init', twikoo)
-        isInit.current = true
+
+        console.log('Twikoo initialized successfully')
+        isInit.current = true // 标记为已初始化
+      } else {
+        console.error('Twikoo is not loaded correctly or init function is missing.')
       }
     } catch (error) {
-      console.error('twikoo 加载失败', error)
+      console.error('Failed to load or initialize Twikoo:', error)
     }
   }
 
   useEffect(() => {
+    // 使用定时器检查是否初始化完成
     const interval = setInterval(() => {
       if (isInit.current) {
-        console.log('twioo init! clear interval')
+        console.log('Twikoo has been initialized! Clearing interval.')
         clearInterval(interval)
       } else {
         loadTwikoo()
       }
     }, 1000)
-    return () => clearInterval(interval)
+
+    return () => clearInterval(interval) // 清理定时器
   }, [isDarkMode])
+
   return <div id="twikoo"></div>
 }
 
