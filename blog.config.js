@@ -12,7 +12,7 @@ const BLOG = {
   // HEO主题特有配置
   HEO_HOME_BANNER_ENABLE: true,
   HEO_HOME_BANNER_GREETINGS: ['Hi，我是Zephyr', '欢迎来到我的博客'],
-  HEO_SITE_CREATE_TIME: '2024-12-01',
+  HEO_SITE_CREATE_TIME: '2024-12-01', // 建站日期，用于计算网站运行的第几天
   
   // 网站基础配置
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Zephyr',
