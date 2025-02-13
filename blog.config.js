@@ -7,15 +7,18 @@ const BLOG = {
     '02ab3b8678004aa69e9e415905ef32a5,en:7c1d570661754c8fbc568e00a01fd70e',
   THEME: process.env.NEXT_PUBLIC_THEME || 'heo', // 将主题改为 heo
   APPEARANCE: process.env.NEXT_PUBLIC_APPEARANCE || 'auto', // HEO主题建议使用auto
+  APPEARANCE_DARK_TIME: process.env.NEXT_PUBLIC_APPEARANCE_DARK_TIME || [18, 6],
   
   // HEO主题特有配置
   HEO_HOME_BANNER_ENABLE: true,
   HEO_HOME_BANNER_GREETINGS: ['Hi，我是Zephyr', '欢迎来到我的博客'],
+  HEO_SITE_CREATE_TIME: '2024-12-01',
   
   // 网站基础配置
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Zephyr',
   BIO: process.env.NEXT_PUBLIC_BIO || '分享澳洲工程与造价知识',
   LINK: process.env.NEXT_PUBLIC_LINK || 'https://www.zbuilds.com.au',
+  KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Notion, 博客, 工程, 造价',
   LANG: process.env.NEXT_PUBLIC_LANG || 'zh-CN', // e.g 'zh-CN','en-US'  see /lib/lang.js for more.
   SINCE: process.env.NEXT_PUBLIC_SINCE || 2024, // e.g if leave this empty, current year will be used.
 

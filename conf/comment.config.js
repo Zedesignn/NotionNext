@@ -27,6 +27,9 @@ module.exports = {
   COMMENT_UTTERRANCES_REPO:
     process.env.NEXT_PUBLIC_COMMENT_UTTERRANCES_REPO || '', // 你的代码仓库名， 例如我是 'tangly1024/NotionNext'； 更多文档参考 https://utteranc.es/
 
+  // 添加系统类型设置
+  COMMENT_SYSTEM: process.env.NEXT_PUBLIC_COMMENT_SYSTEM || 'giscus',
+  
   // giscus @see https://giscus.app/
   COMMENT_GISCUS_REPO: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO || 'Zedesignn/NotionNext',
   COMMENT_GISCUS_REPO_ID: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO_ID || 'R_kgDONjKjow',
