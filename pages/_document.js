@@ -12,6 +12,25 @@ class MyDocument extends Document {
     return (
       <Html lang={BLOG.LANG}>
         <Head>
+          {/* Google Analytics */}
+          {BLOG.ANALYTICS_GOOGLE_ID && (
+            <>
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${BLOG.ANALYTICS_GOOGLE_ID}`}
+              />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${BLOG.ANALYTICS_GOOGLE_ID}');
+                  `
+                }}
+              />
+            </>
+          )}
           {/* 预加载字体 */}
           {BLOG.FONT_AWESOME && (
             <>
