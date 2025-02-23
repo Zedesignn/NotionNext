@@ -19,7 +19,7 @@ const CONFIG = {
 
   // 英雄区(首页顶部大卡)
   HEO_HERO_TITLE_1: '分享澳洲造价',
-  HEO_HERO_TITLE_2: '工程与设计只是',
+  HEO_HERO_TITLE_2: '工程与设计知识',
   HEO_HERO_TITLE_3: 'ZEPHYR BUILDS',
   HEO_HERO_TITLE_4: '新版上线',
   HEO_HERO_TITLE_5: 'ZEPHYR BUILDS 西风营造',
