@@ -8,32 +8,20 @@ const BLOG = {
   API_BASE_URL:
     process.env.API_BASE_URL ||
     'https://zephyrlin.notion.site/api/v3', // 当官方API异常时可替换为站点分配的域名
-  THEME: process.env.NEXT_PUBLIC_THEME || 'heo', // 将主题改为 heo
-  APPEARANCE: process.env.NEXT_PUBLIC_APPEARANCE || 'auto', // HEO主题建议使用auto
-  APPEARANCE_DARK_TIME: process.env.NEXT_PUBLIC_APPEARANCE_DARK_TIME || [18, 6],
-  
-  // HEO主题特有配置
-  HEO_HOME_BANNER_ENABLE: true,
-  HEO_HOME_BANNER_GREETINGS: ['Hi，我是Zephyr', '欢迎来到我的博客'],
-  HEO_SITE_CREATE_TIME: '2024-12-01', // 建站日期，用于计算网站运行的第几天
-  
-  // 网站基础配置
-  AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Zephyr',
-  BIO: process.env.NEXT_PUBLIC_BIO || '分享澳洲工程与造价知识',
-  LINK: process.env.NEXT_PUBLIC_LINK || 'https://www.zbuilds.com.au',
-  KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Notion, 博客, 工程, 造价',
+  THEME: process.env.NEXT_PUBLIC_THEME || 'heo', // 当前主题
   LANG: process.env.NEXT_PUBLIC_LANG || 'zh-CN', // e.g 'zh-CN','en-US'  see /lib/lang.js for more.
   SINCE: process.env.NEXT_PUBLIC_SINCE || 2024, // e.g if leave this empty, current year will be used.
 
   PSEUDO_STATIC: process.env.NEXT_PUBLIC_PSEUDO_STATIC || false, // 伪静态路径，开启后所有文章URL都以 .html 结尾。
   NEXT_REVALIDATE_SECOND: process.env.NEXT_PUBLIC_REVALIDATE_SECOND || 60, // 更新缓存间隔 单位(秒)；即每个页面有60秒的纯静态期、此期间无论多少次访问都不会抓取notion数据；调大该值有助于节省Vercel资源、同时提升访问速率，但也会使文章更新有延迟。
-  APPEARANCE: process.env.NEXT_PUBLIC_APPEARANCE || 'light', // ['light', 'dark', 'auto'], // light 日间模式 ， dark夜间模式， auto根据时间和主题自动夜间模式
+  APPEARANCE: process.env.NEXT_PUBLIC_APPEARANCE || 'auto', // HEO主题建议使用auto
   APPEARANCE_DARK_TIME: process.env.NEXT_PUBLIC_APPEARANCE_DARK_TIME || [18, 6], // 夜间模式起至时间，false时关闭根据时间自动切换夜间模式
 
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Zephyr', // 您的昵称 例如 tangly1024
   BIO: process.env.NEXT_PUBLIC_BIO || '独立设计师，建造师，造价师', // 作者简介
-  LINK: process.env.NEXT_PUBLIC_LINK || 'zbuilds.com.au', // 网站地址
-  KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Zephyr画话澳洲工程', // 网站关键词 英文逗号隔开
+  LINK: process.env.NEXT_PUBLIC_LINK || 'https://www.zbuilds.com.au', // 网站地址
+  KEYWORDS:
+    process.env.NEXT_PUBLIC_KEYWORD || 'Zephyr画话澳洲工程, 工程, 造价', // 网站关键词 英文逗号隔开
   BLOG_FAVICON: process.env.NEXT_PUBLIC_FAVICON || '/favicon.ico', // blog favicon 配置, 默认使用 /public/favicon.ico，支持在线图片，如 https://img.imesong.com/favicon.png
   BEI_AN: process.env.NEXT_PUBLIC_BEI_AN || '', // 备案号 闽ICP备XXXXXX
   BEI_AN_LINK: process.env.NEXT_PUBLIC_BEI_AN_LINK || 'https://beian.miit.gov.cn/', // 备案查询链接，如果用了萌备等备案请在这里填写
@@ -79,7 +67,7 @@ const BLOG = {
   // 欢迎语打字效果,Hexo,Matery主题支持, 英文逗号隔开多个欢迎语。
   GREETING_WORDS:
     process.env.NEXT_PUBLIC_GREETING_WORDS ||
-    'Hi，我是一个设计师, Hi，我是一工程师,Hi，我是一个造价师,欢迎来到我的知识领域',
+    'Hi，我是Zephyr,Hi，我是一名工程造价师,Hi，我是一位设计师,欢迎来到我的知识领域',
 
   // uuid重定向至 slug
   UUID_REDIRECT: process.env.UUID_REDIRECT || false
