@@ -1,6 +1,6 @@
 {
   "name": "notion-next",
-  "version": "4.9.0",
+  "version": "4.9.1",
   "homepage": "https://github.com/tangly1024/NotionNext.git",
   "license": "MIT",
   "engines": {
@@ -17,10 +17,10 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cross-env BUILD_MODE=true next build",
     "start": "next start",
     "post-build": "next-sitemap --config next-sitemap.config.js",
-    "export": "cross-env EXPORT=true next build && next-sitemap --config next-sitemap.config.js",
+    "export": "cross-env BUILD_MODE=true EXPORT=true next build && next-sitemap --config next-sitemap.config.js",
     "bundle-report": "cross-env ANALYZE=true next build",
     "build-all-in-dev": "cross-env VERCEL_ENV=production next build",
     "version": "echo $npm_package_version",
@@ -77,7 +77,7 @@
     "@types/react": "18.3.10",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
-    "@waline/client": "^2.15.8",
+    "@waline/client": "^3.6.0",
     "autoprefixer": "^10.4.21",
     "cross-env": "^7.0.3",
     "eslint": "^8.57.1",
